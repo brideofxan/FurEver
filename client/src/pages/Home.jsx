@@ -1,9 +1,2 @@
 import Navbar from "../components/Navbar.jsx";
-
-export default function Home() {
-return (
-<>
-<Navbar />
-</>
-)
-}
+import { AdoptionProcess } from "./AdoptionProcess.jsx";
