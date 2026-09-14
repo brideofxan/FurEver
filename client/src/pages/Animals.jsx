@@ -12,7 +12,7 @@ export default function Animals() {
     <div className="min-h-screen bg-amber-50">
       <Navbar />
       <p>Animals page test</p>
-      <section className="mx-auto grid max-w-lg gap-10 p-4 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto grid max-w-[2000px] gap-10 p-4 sm:grid-cols-2 lg:grid-cols-3">
         {fakeAnimals.map((animal) => (
           <AnimalCard key={animal.id} name={animal.name} image={animal.image} />
         ))}

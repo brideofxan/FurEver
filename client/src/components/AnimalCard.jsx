@@ -1,7 +1,7 @@
 export default function AnimalCard({ name, image }) {
   return (
     <>
-      <article className="rounded-md border-2 border-gray-200 bg-olive-50 p-3 shadow-sm">
+      <article className="cursor-pointer rounded-sm border-2 border-gray-200 bg-gray-50 p-3 shadow-md duration-200 ease-in-out hover:scale-105">
         <img
           src={image}
           alt={name}
