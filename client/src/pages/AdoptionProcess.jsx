@@ -1,3 +1,6 @@
+// Adoptionsprocessen — visas som sektion på startsidan
+// Länkas från navbaren via id="adoption"
+
 const steps = [
   { nr: "1", title: "Skicka ansökan", text: "Fyll i formuläret med dina uppgifter." },
   { nr: "2", title: "Vi granskar", text: "Svar inom 48 timmar." },
