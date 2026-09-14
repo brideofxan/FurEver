@@ -1,8 +1,14 @@
-// Homepage
+import { BrowserRouter, Routes, Route } from "react-router";
+import Home from "./pages/Home.jsx";
 
-import { useState } from "react";
 function App() {
-  return <></>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
