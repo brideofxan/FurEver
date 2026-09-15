@@ -1,9 +1,14 @@
 import express from "express";
 import morgan from "morgan";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 
 // Route imports
 // import exampleRoute from "path/to/exampleRoute.js";
 import animalRoutes from "./routes/animalRoutes.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -12,6 +17,7 @@ const PORT = 3000;
 // Global middlewares
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(express.static(join(__dirname, "public")));
 
 // Routes
 // app.use("/api/route", exampleRoute);
