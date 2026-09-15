@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar.jsx";
 import AnimalCard from "../components/AnimalCard.jsx";
-import { AdoptionProcess } from "./AdoptionProcess.jsx";
 
 export default function Home() {
   const [animals, setAnimals] = useState([]);
@@ -20,7 +19,6 @@ export default function Home() {
           <AnimalCard key={animal.id} animal={animal} />
         ))}
       </section>
-      <AdoptionProcess />
     </div>
   );
 }

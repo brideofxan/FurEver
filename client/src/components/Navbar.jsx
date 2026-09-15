@@ -55,12 +55,12 @@ export default function Navbar() {
             Djur
           </Link>
           <span className="text-gray-300">|</span>
-          <a
-            href="#adoption"
+          <Link
+            to="/adoption"
             className="cursor-pointer transition-colors hover:text-amber-600"
           >
             Adoption
-          </a>
+          </Link>
           <span className="text-gray-300">|</span>
           <a
             href="#contact"
@@ -149,16 +149,16 @@ export default function Navbar() {
           >
             Djur
           </Link>
-          <a
-            href="#adoption"
+          <Link
+            to="/adoption"
             className="block w-full border-b border-gray-100 py-3 text-center text-base font-medium text-gray-700 hover:text-amber-600"
             onClick={() => setIsOpen(false)}
           >
             Adoption
-          </a>
+          </Link>
           <a
             href="#contact"
-            className="w- full block border-b border-gray-100 py-3 text-center text-base font-medium text-gray-700 hover:text-amber-600"
+            className="block w-full border-b border-gray-100 py-3 text-center text-base font-medium text-gray-700 hover:text-amber-600"
             onClick={() => setIsOpen(false)}
           >
             Kontakt
