@@ -1,8 +1,11 @@
-const Database = require('better-sqlite3');
-const path = require('path');
+import { fileURLToPath } from 'url';
+import path from 'path';
+import Database from 'better-sqlite3';
 
-const db = new Database(path.join(__dirname, 'db.sqlite')); 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-db.pragma('foreign_keys = ON'); 
+const dbPath = path.join(__dirname, 'furever.db');
+const db = new Database(dbPath);
 
-module.exports = db;
+export default db;
