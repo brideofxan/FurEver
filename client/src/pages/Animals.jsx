@@ -14,7 +14,9 @@ export default function Animals() {
   return (
     <div className="min-h-screen bg-amber-50">
       <Navbar />
-      <p>Animals page test</p>
+      <h3 className="m-5 p-4 text-center text-3xl font-bold sm:text-2xl">
+        Våra djur som är tillgängliga för adoption
+      </h3>
       <section className="mx-auto grid max-w-[2000px] gap-10 p-4 sm:grid-cols-2 lg:grid-cols-3">
         {animals.map((animal) => (
           <AnimalCard key={animal.id} animal={animal} />
