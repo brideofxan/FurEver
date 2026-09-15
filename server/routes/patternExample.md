@@ -1,7 +1,7 @@
-import express from "express";
+import { Router } from "express";
 import { controllerFunction } from "path/to/controller.js";
 
-const router = express.Router();
+const router = Router();
 
 router.method("/route", controllerFunction);
 
