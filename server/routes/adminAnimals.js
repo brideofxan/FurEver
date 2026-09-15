@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // POST /api/admin/animals
-router.post('/animals', upload.single('image'), (req, res) => {
+router.post('/', upload.single('image'), (req, res) => {
   try {
     const {
       name,

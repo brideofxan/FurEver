@@ -1,11 +1,15 @@
-import { fileURLToPath } from 'url';
-import path from 'path';
-import Database from 'better-sqlite3';
+import Database from "better-sqlite3";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(__filename);
 
-const dbPath = path.join(__dirname, 'furever.db');
-const db = new Database(dbPath);
+const db = new Database(join(__dirname, "../db/FurEver.db"), {
+  verbose: console.log,
+  fileMustExist: true,
+});
+
+db.pragma("foreign_keys = ON");
 
 export default db;

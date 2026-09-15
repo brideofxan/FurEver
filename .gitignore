@@ -167,4 +167,4 @@ dist-ssr
 *.sln
 *.sw?
 
-*.furever.db
+*.db
