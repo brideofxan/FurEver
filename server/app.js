@@ -6,6 +6,8 @@ import { fileURLToPath } from "url";
 // Route imports
 // import exampleRoute from "path/to/exampleRoute.js";
 import animalRoutes from "./routes/animalRoutes.js";
+import applicationsRoutes from "./routes/applicationsRoutes.js";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,7 +24,13 @@ app.use(express.static(join(__dirname, "public")));
 // Routes
 // app.use("/api/route", exampleRoute);
 app.use("/api/animals", animalRoutes);
+app.use("/api/applications", applicationsRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servern springer iväg! ${PORT}`);
 });
+
+// Lägg till detta längst ner i din server/app.js (under app.listen)
+setInterval(() => {
+    // Den här tomma timern håller Node.js-eventloopen aktiv
+}, 1000000);

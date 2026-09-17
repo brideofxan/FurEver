@@ -5,9 +5,8 @@ import { dirname, join } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const db = new Database(join(__dirname, "../db/FurEver.db"), {
+const db = new Database(join(__dirname, "FurEver.db"), {
   verbose: console.log,
-  fileMustExist: true,
 });
 
 db.pragma("foreign_keys = ON");
