@@ -13,7 +13,7 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 8000;
 
 // Global middlewares
 app.use(express.json());
