@@ -6,7 +6,6 @@ import { fileURLToPath } from "url";
 // Route imports
 // import exampleRoute from "path/to/exampleRoute.js";
 import animalRoutes from "./routes/animalRoutes.js";
-import adminAnimalRoutes from "./routes/adminAnimals.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,7 +22,7 @@ app.use(express.static(join(__dirname, "public")));
 // Routes
 // app.use("/api/route", exampleRoute);
 app.use("/api/animals", animalRoutes);
-app.use("/api/admin/animals", adminAnimalRoutes);
+app.use("/api/admin/animals", animalRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servern springer iväg! ${PORT}`);
