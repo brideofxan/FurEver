@@ -1,10 +1,9 @@
-// import db from "../db/db.js";
+import db from "../db/db.js";
 import validator from "validator";
 import bcrypt from "bcryptjs";
 
 export async function registerUser(req, res) {
   const { username, password, confirmPassword } = req.body;
-  console.log("Req body:", req.body);
 
   if (!username || !password || !confirmPassword) {
     return res.status(400).json({
@@ -30,16 +29,28 @@ export async function registerUser(req, res) {
       ],
     });
   }
+  try {
+    const usernameTaken = db
+      .prepare("SELECT id FROM users WHERE username = ?")
+      .get(username);
+    if (usernameTaken) {
+      return res.status(409).json({
+        message: "Användaren finns redan, vänligen försök igen.",
+      });
+    }
 
-  // TODO: Check if user exists, create fake user to check against
+    const password_hash = await bcrypt.hash(password, 10);
 
-  // TODO: When all checks pass, salt and hash password, console log result
+    db.prepare(
+      ` INSERT INTO users (username, password_hash) VALUES (@username, @password_hash) `,
+    ).run({ username, password_hash });
 
-  // TODO: Implement db logic to register a user
+    return res.status(201).json({ message: "Användare skapad!" });
+  } catch (error) {
+    console.error("Något gick fel vid registrering av användaren: ", error);
 
-  // TODO: Implement db logic to check if a real user exists
-
-  return res
-    .status(200)
-    .json({ message: "This works!", username, password, confirmPassword });
+    return res.status(500).json({
+      error: "Något gick fel, vänligen försök igen senare.",
+    });
+  }
 }
