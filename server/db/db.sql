@@ -16,10 +16,16 @@ CREATE TABLE IF NOT EXISTS animals (
 
 INSERT INTO animals(
   name, animal_type, image_path
-) VALUES ( 'Pato', 'Cat', '/images/pato.jpg' ),
-( 'Pascal', 'Cat', '/images/pascal.jpg' ),
-( 'Archibald', 'Cat', '/images/archibald.jpg' ),
-( 'Patoski', 'Cat', '/images/pato-selfie.jpg' ),
-( 'Explorer Lad', 'Cat', '/images/explorer-boi.jpg' ),
-( 'Fancy Lad', 'Cat', '/images/anniversary-boi.jpg' ),
-( 'Solpågen', 'Cat', '/images/sun-boi.jpg' );
+) VALUES ( 'Pato', 'katt', '/images/pato.jpg' ),
+( 'Pascal', 'katt', '/images/pascal.jpg' ),
+( 'Archibald', 'katt', '/images/archibald.jpg' ),
+( 'Patoski', 'katt', '/images/pato-selfie.jpg' ),
+( 'Explorer Lad', 'katt', '/images/explorer-boi.jpg' ),
+( 'Fancy Lad', 'katt', '/images/anniversary-boi.jpg' ),
+( 'Solpågen', 'katt', '/images/sun-boi.jpg' );
+
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT NOT NULL,
+  password_hash TEXT NOT NULL
+);
