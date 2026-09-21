@@ -22,6 +22,7 @@ app.use(express.static(join(__dirname, "public")));
 // Routes
 // app.use("/api/route", exampleRoute);
 app.use("/api/animals", animalRoutes);
+app.use("/api/admin/animals", animalRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servern springer iväg! ${PORT}`);
