@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import AdminLayout from "../components/AdminLayout";
 
 export default function AdminApplications() {
   const [applications, setApplications] = useState([]);
@@ -66,11 +67,10 @@ export default function AdminApplications() {
   }, []);
 
   return (
-    /* 3. ÄNDRING: Lade till min-h-screen och bg-amber-50 på bakgrunden */
-    <div className="min-h-screen bg-amber-50 p-6">
-      <div className="mx-auto max-w-6xl">
-        <h1 className="mb-12 mt-6 text-3xl font-bold text-gray-800">
-          Adoptionsansökningar (Admin)
+    <AdminLayout>
+      <div className="w-full max-w-6xl">
+        <h1 className="mb-8 text-3xl font-bold text-gray-800">
+          Adoptionsansökningar 
         </h1>
 
         {error && (
@@ -88,7 +88,6 @@ export default function AdminApplications() {
               </tr>
             </thead>
             <tbody>
-              {/* 2. ÄNDRING: Lade till 'index' i map för att kunna göra zebraränder */}
               {applications.map((app, index) => (
                 <tr 
                   key={app.id} 
@@ -106,7 +105,6 @@ export default function AdminApplications() {
                     {app.animal_name || `ID: ${app.animal_id}`}
                   </td>
                   <td className="px-5 py-5">
-                    {/* 1. ÄNDRING: Använder nu getStatusColor för klasserna */}
                     <select
                       value={app.status}
                       onChange={(e) => handleStatusChange(app.id, e.target.value)}
@@ -131,6 +129,7 @@ export default function AdminApplications() {
           </table>
         </div>
       </div>
-    </div>
+    </AdminLayout>
   );
 }
+ 
