@@ -3,6 +3,7 @@ import Home from "./pages/Home.jsx";
 import Animals from "./pages/Animals.jsx";
 import AdoptionProcess from "./pages/AdoptionProcess.jsx";
 import AdminApplications from "./pages/AdminApplications.jsx";
+import AdminForm from "./pages/AdminForm.jsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/animals" element={<Animals />} />
         <Route path="/adoption" element={<AdoptionProcess />} />
         <Route path="/admin" element={<AdminApplications />} />
+        <Route path="/admin/animals" element={<AdminForm />} />
       </Routes>
     </BrowserRouter>
   );
