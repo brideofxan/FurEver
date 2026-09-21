@@ -30,6 +30,23 @@ export function getAllAnimals(req, res) {
   }
 }
 
+export function getAnimalById(req, res) {
+  try {
+    const animal = db
+      .prepare("SELECT * FROM animals WHERE id = ?")
+      .get(req.params.id);
+
+    if (!animal) {
+      return res.status(404).json({ error: "Djuret hittades inte" });
+    }
+
+    return res.status(200).json(animal);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Kunde inte hämta djuret" });
+  }
+}
+
 export function createAnimal(req, res) {
   try {
     const {
