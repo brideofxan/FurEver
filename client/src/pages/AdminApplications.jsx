@@ -42,6 +42,11 @@ export default function AdminApplications() {
     }
   };
 
+  const handleDelete = (id) => {
+    setApplications((prevApps) => prevApps.filter((app) => app.id !== id));
+  };
+
+
   const getStatusColor = (status) => {
     const baseClasses = "shadow-sm border transition-all duration-200 hover:shadow-md hover:brightness-95";
 
@@ -85,6 +90,7 @@ export default function AdminApplications() {
                 <th className="px-5 py-3">E-post</th>
                 <th className="px-5 py-3">Djur</th>
                 <th className="px-5 py-3">Status</th>
+                <th className="px-5 py-3 text-center">Ta bort</th>
               </tr>
             </thead>
             <tbody>
@@ -116,11 +122,20 @@ export default function AdminApplications() {
                       <option value="Avslag" className="bg-white text-gray-950">Avslag</option>
                     </select>
                   </td>
+                  <td className="px-5 py-5 text-center">
+                    <button
+                      onClick={() => handleDelete(app.id)}
+                      className="inline-flex items-center justify-center h-8 w-8 text-lg font-bold text-gray-400 bg-transparent rounded-full hover:bg-red-50 hover:text-red-600 transition-all duration-200 cursor-pointer"
+                      title="Ta bort ansökan"
+                    >
+                      ✕
+                    </button>
+                  </td>
                 </tr>
               ))}
               {applications.length === 0 && !error && (
                 <tr>
-                  <td colSpan="4" className="px-5 py-5 text-center text-gray-500">
+                  <td colSpan="5" className="px-5 py-5 text-center text-gray-500">
                     Inga ansökningar hittades i databasen.
                   </td>
                 </tr>

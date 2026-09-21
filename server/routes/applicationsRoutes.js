@@ -10,4 +10,5 @@ router.get("/", getAllApplications);
 
 router.put("/:id", updateApplicationStatus);
 
+
 export default router;
