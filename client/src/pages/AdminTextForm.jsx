@@ -2,8 +2,8 @@ import { useState } from "react";
 import AdminLayout from "../components/AdminLayout";
 
 const initialText = {
-  heading: "Välkommen till FurEver",
-  body: "Här hittar du djur som söker ett tryggt och kärleksfullt hem.",
+  heading: "",
+  body: "",
 };
 
 export default function AdminTextForm() {
