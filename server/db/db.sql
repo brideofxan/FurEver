@@ -23,7 +23,6 @@ INSERT INTO animals(
 ( 'Explorer Lad', 'Cat', '/uploads/animals/explorer-boi.jpg' ),
 ( 'Fancy Lad', 'Cat', '/uploads/animals/anniversary-boi.jpg' ),
 ( 'Solpågen', 'Cat', '/uploads/animals/sun-boi.jpg' );
-=======
 
 CREATE TABLE IF NOT EXISTS applications (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
