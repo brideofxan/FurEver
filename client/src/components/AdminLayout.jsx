@@ -27,6 +27,11 @@ function AdminLayout({ children }) {
               className="block font-medium text-black hover:text-amber-600">
               Se alla djur
             </Link>
+             <Link 
+              to="/admin/texts" 
+              className="block font-medium text-black hover:text-amber-600">
+              Redigera texter
+              </Link>
           </nav>
         </aside>
 
