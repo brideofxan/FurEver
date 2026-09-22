@@ -3,8 +3,6 @@ import morgan from "morgan";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-// Route imports
-// import exampleRoute from "path/to/exampleRoute.js";
 import animalRoutes from "./routes/animalRoutes.js";
 import applicationsRoutes from "./routes/applicationsRoutes.js";
 
@@ -31,7 +29,3 @@ app.listen(PORT, () => {
   console.log(`Servern springer iväg! ${PORT}`);
 });
 
-// Lägg till detta längst ner i din server/app.js (under app.listen)
-setInterval(() => {
-    // Den här tomma timern håller Node.js-eventloopen aktiv
-}, 1000000);

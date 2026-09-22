@@ -33,10 +33,8 @@ export const updateApplicationStatus = (req, res) => {
         WHERE id = ?
         `;
 
-        // better-sqlite3 använder .run() för uppdateringar
         const info = db.prepare(query).run(status, id);
 
-        // info.changes visar hur många rader som påverkades
         if (info.changes === 0) {
             return res.status(404).json({ error: 'Hittade ingen ansökan med det ID:t'});
         }
