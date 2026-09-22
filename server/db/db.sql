@@ -16,13 +16,13 @@ CREATE TABLE IF NOT EXISTS animals (
 
 INSERT INTO animals(
   name, animal_type, image_path
-) VALUES ( 'Pato', 'Cat', '/images/pato.jpg' ),
-( 'Pascal', 'Cat', '/images/pascal.jpg' ),
-( 'Archibald', 'Cat', '/images/archibald.jpg' ),
-( 'Patoski', 'Cat', '/images/pato-selfie.jpg' ),
-( 'Explorer Lad', 'Cat', '/images/explorer-boi.jpg' ),
-( 'Fancy Lad', 'Cat', '/images/anniversary-boi.jpg' ),
-( 'Solpågen', 'Cat', '/images/sun-boi.jpg' );
+) VALUES ( 'Pato', 'katt', 'uploads/animals/pato.jpg' ),
+( 'Pascal', 'katt', 'uploads/animals/pascal.jpg' ),
+( 'Archibald', 'katt', 'uploads/animals/archibald.jpg' ),
+( 'Patoski', 'katt', 'uploads/animals/pato-selfie.jpg' ),
+( 'Explorer Lad', 'katt', 'uploads/animals/explorer-boi.jpg' ),
+( 'Fancy Lad', 'katt', 'uploads/animals/anniversary-boi.jpg' ),
+( 'Solpågen', 'katt', 'uploads/animals/sun-boi.jpg' );
 
 
 CREATE TABLE IF NOT EXISTS applications (
