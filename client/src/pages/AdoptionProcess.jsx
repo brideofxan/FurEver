@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar.jsx";
 
 const steps = [
@@ -29,6 +30,14 @@ const animals = [
 ];
 
 export default function AdoptionProcess() {
+  const [intro, setIntro] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/animals/content/Adoption")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => setIntro(data));
+  }, []);
+
   return (
     <div className="min-h-screen bg-amber-50">
       <Navbar />
@@ -38,10 +47,10 @@ export default function AdoptionProcess() {
           id="adoption-heading"
           className="m-5 p-4 text-center text-3xl font-bold sm:text-2xl"
         >
-          Adoptionsprocessen
+          {intro?.heading ?? "Adoptionsprocessen"}
         </h1>
-        <p className="px-4 pb-4 text-center text-lg text-gray-700">
-          Från ansökan till godkänd adoption — fyra enkla steg.
+        <p className="whitespace-pre-line px-4 pb-4 text-center text-lg text-gray-700">
+          {intro?.body ?? "Från ansökan till godkänd adoption — fyra enkla steg."}
         </p>
 
         {/* Steg */}

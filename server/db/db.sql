@@ -40,3 +40,9 @@ VALUES
 (1, 'Anna Andersson', 'anna@example.com', 'Mottagen'),
 (2, 'Erik Karlsson', 'erik@example.com', 'Under granskning'),
 (3, 'Maria Johansson', 'maria@example.com', 'Godkänd');
+
+CREATE TABLE IF NOT EXISTS content (
+  key TEXT PRIMARY KEY,
+  heading TEXT,
+  body TEXT
+);
