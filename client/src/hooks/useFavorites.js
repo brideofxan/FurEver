@@ -24,13 +24,13 @@ export function useFavorites() {
     }
     const updated = [...favorites, id];
     localStorage.setItem('furEver_favorites', JSON.stringify(updated));
-    window.dispatchEvent(new Event('favoritesChanged')); // Signalera till andra filer
+    window.dispatchEvent(new Event('favoritesChanged')); 
   };
 
   const removeFavorite = (id) => {
     const updated = favorites.filter((favId) => favId !== id);
     localStorage.setItem('furEver_favorites', JSON.stringify(updated));
-    window.dispatchEvent(new Event('favoritesChanged')); // Signalera till andra filer
+    window.dispatchEvent(new Event('favoritesChanged')); 
   };
 
   const isFavorite = (id) => favorites.includes(id);
