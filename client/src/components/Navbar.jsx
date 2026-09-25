@@ -80,6 +80,7 @@ export default function Navbar() {
           {/* Gubb-ikon */}
           <a
             href="#mypages"
+            aria-label="Mina sidor"
             className="cursor-pointer pl-1 transition-colors hover:text-amber-600"
             title="Mina sidor"
           >
@@ -104,7 +105,9 @@ export default function Navbar() {
         <div className="flex items-center sm:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="cursor-pointer p-2 text-gray-600 hover:text-amber-600 focus:outline-none"
+            aria-label={isOpen ? "Stäng meny" : "Öppna meny"}
+            aria-expanded={isOpen}
+            className="cursor-pointer p-2 text-gray-600 hover:text-amber-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
           >
             {isOpen ? (
               <svg
