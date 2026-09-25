@@ -117,7 +117,7 @@ export default function AdminTextForm() {
                 type="text"
                 value={texts[key].heading}
                 onChange={(e) => handleChange(key, "heading", e.target.value)}
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-amber-500 focus:outline-none"
+                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-black focus:outline-none"
               />
             </div>
 
@@ -129,7 +129,7 @@ export default function AdminTextForm() {
                 value={texts[key].body}
                 onChange={(e) => handleChange(key, "body", e.target.value)}
                 rows="4"
-                className="mt-1 w-full resize-y rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-amber-500 focus:outline-none"
+                className="mt-1 w-full resize-y rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-black focus:outline-none"
               />
             </div>
 
@@ -144,14 +144,14 @@ export default function AdminTextForm() {
                 type="button"
                 onClick={() => handleSave(key)}
                 disabled={savingKey === key}
-                className="rounded-md bg-amber-500 px-5 py-2 font-medium text-black transition hover:bg-amber-600 disabled:opacity-50"
+                className="cursor-pointer rounded-md bg-gray-800 px-5 py-2 font-medium text-white transition-colors duration-200 hover:bg-gray-800/85 disabled:opacity-50"
               >
                 {savingKey === key ? "Sparar..." : "Spara"}
               </button>
               <button
                 type="button"
                 onClick={() => handleCancel(key)}
-                className="rounded-md border border-gray-300 px-5 py-2 font-medium text-gray-700 transition hover:bg-gray-100"
+                className="cursor-pointer rounded-md border border-gray-300 px-5 py-2 font-medium text-gray-700 transition hover:bg-gray-100"
               >
                 Avbryt
               </button>
