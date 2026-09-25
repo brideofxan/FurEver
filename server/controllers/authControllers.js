@@ -54,3 +54,46 @@ export async function registerUser(req, res) {
     });
   }
 }
+
+export async function login(req, res) {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res.status(400).json({
+      error: "Vänligen fyll i alla fält",
+    });
+  }
+
+  try {
+    const user = db
+      .prepare(`SELECT * FROM users WHERE username = ?`)
+      .get(username);
+
+    if (!user) {
+      return res.status(401).json({
+        error: "Fel användarnamn eller lösenord",
+      });
+    }
+
+    const pwdMatch = await bcrypt.compare(password, user.password_hash);
+    if (!pwdMatch) {
+      return res.status(401).json({
+        error: "Fel användarnamn eller lösenord",
+      });
+    }
+
+    req.session.userId = user.id;
+    req.session.username = user.username;
+
+    return res.status(200).json({
+      message: "Inloggad!",
+      username: user.username,
+    });
+  } catch (error) {
+    console.error("Något gick fel vid registrering av användaren: ", error);
+
+    return res.status(500).json({
+      error: "Något gick fel, vänligen försök igen senare.",
+    });
+  }
+}
