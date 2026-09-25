@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AdminLayout from "../components/AdminLayout";
+import AdminLayout from "../components/AdminLayout.jsx";
 
 function AdminForm() {
   const [formData, setFormData] = useState({

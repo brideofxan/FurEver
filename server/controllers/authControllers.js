@@ -35,7 +35,7 @@ export async function registerUser(req, res) {
       .get(username);
     if (usernameTaken) {
       return res.status(409).json({
-        message: "Användaren finns redan, vänligen försök igen.",
+        error: "Användaren finns redan, vänligen försök igen.",
       });
     }
 
