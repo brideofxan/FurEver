@@ -4,6 +4,7 @@ import Animals from "./pages/Animals.jsx";
 import AdoptionProcess from "./pages/AdoptionProcess.jsx";
 import AdminApplications from "./pages/AdminApplications.jsx";
 import AdminForm from "./pages/AdminForm.jsx";
+import AdminTextForm from "./pages/AdminTextForm.jsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/adoption" element={<AdoptionProcess />} />
         <Route path="/admin/applications" element={<AdminApplications />} />
         <Route path="/admin/animals" element={<AdminForm />} />
+        <Route path="/admin/texts" element={<AdminTextForm />} />
       </Routes>
     </BrowserRouter>
   );

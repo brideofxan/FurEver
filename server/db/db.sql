@@ -16,14 +16,13 @@ CREATE TABLE IF NOT EXISTS animals (
 
 INSERT INTO animals(
   name, animal_type, image_path
-) VALUES ( 'Pato', 'katt', 'uploads/animals/pato.jpg' ),
-( 'Pascal', 'katt', 'uploads/animals/pascal.jpg' ),
-( 'Archibald', 'katt', 'uploads/animals/archibald.jpg' ),
-( 'Patoski', 'katt', 'uploads/animals/pato-selfie.jpg' ),
-( 'Explorer Lad', 'katt', 'uploads/animals/explorer-boi.jpg' ),
-( 'Fancy Lad', 'katt', 'uploads/animals/anniversary-boi.jpg' ),
-( 'Solpågen', 'katt', 'uploads/animals/sun-boi.jpg' );
-
+) VALUES ( 'Pato', 'Cat', '/uploads/animals/pato.jpg' ),
+( 'Pascal', 'Cat', '/uploads/animals/pascal.jpg' ),
+( 'Archibald', 'Cat', '/uploads/animals/archibald.jpg' ),
+( 'Patoski', 'Cat', '/uploads/animals/pato-selfie.jpg' ),
+( 'Explorer Lad', 'Cat', '/uploads/animals/explorer-boi.jpg' ),
+( 'Fancy Lad', 'Cat', '/uploads/animals/anniversary-boi.jpg' ),
+( 'Solpågen', 'Cat', '/uploads/animals/sun-boi.jpg' );
 
 CREATE TABLE IF NOT EXISTS applications (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -41,3 +40,9 @@ VALUES
 (1, 'Anna Andersson', 'anna@example.com', 'Mottagen'),
 (2, 'Erik Karlsson', 'erik@example.com', 'Under granskning'),
 (3, 'Maria Johansson', 'maria@example.com', 'Godkänd');
+
+CREATE TABLE IF NOT EXISTS content (
+  key TEXT PRIMARY KEY,
+  heading TEXT,
+  body TEXT
+);
