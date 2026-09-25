@@ -6,6 +6,7 @@ import AdminApplications from "./pages/AdminApplications.jsx";
 import AdminForm from "./pages/AdminForm.jsx";
 import Login from "./pages/Login.jsx";
 import RegisterUser from "./pages/RegisterUser.jsx";
+import AdminTextForm from "./pages/AdminTextForm.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/admin/animals" element={<AdminForm />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegisterUser />} />
+        <Route path="/admin/texts" element={<AdminTextForm />} />
       </Routes>
     </BrowserRouter>
   );

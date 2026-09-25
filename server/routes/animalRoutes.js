@@ -1,10 +1,22 @@
 import { Router } from "express";
-import { getAllAnimals, upload, createAnimal } 
-from "../controllers/animalsControllers.js";
+import {
+  getAllAnimals,
+  upload,
+  createAnimal,
+  getAllContent,
+  getContentByKey,
+  upsertContent,
+} from "../controllers/animalsControllers.js";
 
 const router = Router();
 
+// Animals
 router.get("/", getAllAnimals);
 router.post("/", upload.single("image"), createAnimal);
+
+// Page texts (content)
+router.get("/content", getAllContent);
+router.get("/content/:key", getContentByKey);
+router.put("/content/:key", upsertContent);
 
 export default router;

@@ -211,7 +211,7 @@ function AdminForm() {
 
         <button
           type="submit"
-          className="w-full cursor-pointer rounded-md bg-amber-500 py-2 text-black transition hover:bg-amber-600"
+          className="w-full cursor-pointer rounded-md bg-gray-800 py-2 text-white transition-colors duration-200 hover:bg-gray-800/85"
         >
           Spara djur
         </button>
