@@ -98,3 +98,61 @@ export function createAnimal(req, res) {
     });
   }
 }
+
+// Editable page texts (adoption process page, animal page, Home page, etc.)
+export function getAllContent(req, res) {
+  try {
+    const content = db.prepare("SELECT * FROM content").all();
+    return res.status(200).json(content);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      error: "Couldn't get content...",
+    });
+  }
+}
+
+export function getContentByKey(req, res) {
+  try {
+    const { key } = req.params;
+
+    const content = db
+      .prepare("SELECT * FROM content WHERE key = ?")
+      .get(key);
+
+    if (!content) {
+      return res.status(404).json({ error: "Hittade ingen text för denna sektion." });
+    }
+
+    return res.status(200).json(content);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      error: "Couldn't get content...",
+    });
+  }
+}
+
+export function upsertContent(req, res) {
+  try {
+    const { key } = req.params;
+    const { heading, body } = req.body;
+
+    const stmt = db.prepare(`
+      INSERT INTO content (key, heading, body)
+      VALUES (?, ?, ?)
+      ON CONFLICT(key) DO UPDATE SET
+        heading = excluded.heading,
+        body = excluded.body
+    `);
+
+    stmt.run(key, heading, body);
+
+    return res.status(200).json({ message: "Texten sparades!" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      error: "Kunde inte spara texten...",
+    });
+  }
+}
