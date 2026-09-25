@@ -71,14 +71,14 @@ export async function login(req, res) {
 
     if (!user) {
       return res.status(401).json({
-        error: "Fel användarnamn eller lösenord",
+        error: "Fel användarnamn eller lösenord.",
       });
     }
 
     const pwdMatch = await bcrypt.compare(password, user.password_hash);
     if (!pwdMatch) {
       return res.status(401).json({
-        error: "Fel användarnamn eller lösenord",
+        error: "Fel användarnamn eller lösenord.",
       });
     }
 
@@ -86,7 +86,7 @@ export async function login(req, res) {
     req.session.username = user.username;
 
     return res.status(200).json({
-      message: "Inloggad!",
+      message: "Du loggas nu in!",
       username: user.username,
     });
   } catch (error) {
@@ -96,4 +96,27 @@ export async function login(req, res) {
       error: "Något gick fel, vänligen försök igen senare.",
     });
   }
+}
+
+export function logout(req, res) {
+  req.session.destroy((error) => {
+    if (error) {
+      return res.status(500).json({
+        error: "Något gick fel vid utloggningen, vänligen försök igen.",
+      });
+    }
+    res.clearCookie("connect.sid");
+    return res.status(200).json({
+      message: "Du loggas nu ut...",
+    });
+  });
+}
+
+export function getCurrentUser(req, res) {
+  if (!req.session.userId) {
+    return res.status(200).json({ user: null });
+  }
+  return res.status(200).json({
+    user: { id: req.session.userId, username: req.session.username },
+  });
 }
