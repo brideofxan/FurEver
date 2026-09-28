@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar.jsx";
 import AnimalCard from "../components/AnimalCard.jsx";
 
 export default function Animals() {
@@ -19,12 +18,13 @@ export default function Animals() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-amber-50">
-      <Navbar />
+    <div>
       {intro && (
         <section className="mx-auto max-w-4xl px-4 py-12 text-center">
           <h1 className="text-4xl font-bold text-gray-900">{intro.heading}</h1>
-          {intro.body && <p className="mt-4 text-lg text-gray-700">{intro.body}</p>}
+          {intro.body && (
+            <p className="mt-4 text-lg text-gray-700">{intro.body}</p>
+          )}
         </section>
       )}
       <section className="mx-auto grid max-w-[2000px] gap-10 p-4 sm:grid-cols-2 lg:grid-cols-3">

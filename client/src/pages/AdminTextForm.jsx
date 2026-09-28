@@ -12,7 +12,7 @@ const emptyText = { heading: "", body: "" };
 
 export default function AdminTextForm() {
   const [texts, setTexts] = useState(
-    Object.fromEntries(SECTIONS.map((s) => [s.key, emptyText]))
+    Object.fromEntries(SECTIONS.map((s) => [s.key, emptyText])),
   );
   const [savedTexts, setSavedTexts] = useState(texts);
   const [loading, setLoading] = useState(true);
@@ -38,7 +38,7 @@ export default function AdminTextForm() {
               heading: byKey[s.key]?.heading ?? "",
               body: byKey[s.key]?.body ?? "",
             },
-          ])
+          ]),
         );
 
         setTexts(merged);
@@ -105,7 +105,7 @@ export default function AdminTextForm() {
         {SECTIONS.map(({ key, label }) => (
           <div
             key={key}
-            className="rounded-lg bg-white p-6 shadow-md space-y-4"
+            className="space-y-4 rounded-lg bg-white p-6 shadow-md"
           >
             <h2 className="text-lg font-semibold text-gray-800">{label}</h2>
 

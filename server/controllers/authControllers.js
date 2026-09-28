@@ -87,7 +87,7 @@ export async function login(req, res) {
 
     return res.status(200).json({
       message: "Du loggas nu in!",
-      username: user.username,
+      user: { id: user.id, username: user.username },
     });
   } catch (error) {
     console.error("Något gick fel vid registrering av användaren: ", error);
