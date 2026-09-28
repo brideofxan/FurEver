@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 
-export default function Navbar() {
+export default function Navbar({ user }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -78,8 +78,8 @@ export default function Navbar() {
           <span className="text-gray-300">|</span>
 
           {/* Gubb-ikon */}
-          <a
-            href="#mypages"
+          <Link
+            to={user ? "/user" : "/login"}
             aria-label="Mina sidor"
             className="cursor-pointer pl-1 transition-colors hover:text-amber-600"
             title="Mina sidor"
@@ -98,7 +98,7 @@ export default function Navbar() {
                 d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
               />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* Hamburgerknapp (streck/kryss) */}
@@ -107,7 +107,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Stäng meny" : "Öppna meny"}
             aria-expanded={isOpen}
-            className="cursor-pointer p-2 text-gray-600 hover:text-amber-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
+            className="cursor-pointer p-2 text-gray-600 hover:text-amber-600 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:outline-none"
           >
             {isOpen ? (
               <svg
@@ -173,13 +173,13 @@ export default function Navbar() {
           >
             Priser
           </a>
-          <a
-            href="#mypages"
+          <Link
+            to={user ? "/user" : "/login"}
             className="block w-full border-b border-gray-100 py-3 text-center text-base font-medium text-gray-700 hover:text-amber-600"
             onClick={() => setIsOpen(false)}
           >
             Mina sidor
-          </a>
+          </Link>
         </div>
       )}
     </nav>
