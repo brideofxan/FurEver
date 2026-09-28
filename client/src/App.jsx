@@ -30,9 +30,9 @@ function App() {
           <Route path="/" element={<Home user={user} />} />
           <Route path="/animals" element={<Animals />} />
           <Route path="/adoption" element={<AdoptionProcess />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<RegisterUser />} />
-          <Route path="/user" element={<UserPage />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/user" element={<UserPage setUser={setUser} />} />
         </Route>
 
         <Route path="/admin/applications" element={<AdminApplications />} />

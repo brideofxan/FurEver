@@ -126,7 +126,7 @@ export default function RegisterUser() {
         <div className="flex flex-wrap items-center justify-between gap-3 sm:pt-8">
           <button
             type="submit"
-            className="rounded-md border border-taupe-400 bg-sky-200/70 p-3 font-bold shadow-xs transition duration-100 ease-in-out outline-none hover:cursor-pointer hover:bg-sky-300/50 focus-visible:bg-sky-300/50 focus-visible:ring-2 focus-visible:ring-taupe-500/50 active:bg-sky-300/70 sm:p-2"
+            className="cursor-pointer rounded-md border border-taupe-400 bg-sky-200/70 p-3 font-bold shadow-xs transition duration-100 ease-in-out outline-none hover:bg-sky-300/50 focus-visible:bg-sky-300/50 focus-visible:ring-2 focus-visible:ring-taupe-500/50 active:bg-sky-300/70 sm:p-2"
           >
             Registrera
           </button>
