@@ -27,7 +27,7 @@ export default function AnimalCard({ animal }) {
 
         <img
           src={animal.image_path}
-          alt={animal.name}
+          alt={`En bild på en ${animal.animal_type} som heter ${animal.name}.`}
           className="aspect-square w-full object-cover p-3"
         />
         <p className="py-2 text-center text-2xl tracking-wide">{animal.name}</p>

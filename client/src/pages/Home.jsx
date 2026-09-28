@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar.jsx";
 import AnimalCard from "../components/AnimalCard.jsx";
 import { useFavorites } from "../hooks/useFavorites.js";
 
@@ -15,15 +14,14 @@ export default function Home() {
   }, []);
 
   const favoriteAnimals = animals.filter((animal) => favorites.includes(animal.id))
-   useEffect(() => {
+  useEffect(() => {
     fetch("/api/animals/content/Home")
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => setIntro(data));
   }, []);
 
   return (
-    <div className="min-h-screen bg-amber-50">
-      <Navbar />
+    <div>
       {intro && (
         <section className="mx-auto max-w-4xl px-4 py-12 text-center">
           <h1 className="text-4xl font-bold text-gray-900">{intro.heading}</h1>
