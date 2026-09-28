@@ -27,7 +27,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout user={user} />}>
-          <Route path="/" element={<Home user={user} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/animals" element={<Animals />} />
           <Route path="/adoption" element={<AdoptionProcess />} />
           <Route path="/register" element={<RegisterUser />} />
