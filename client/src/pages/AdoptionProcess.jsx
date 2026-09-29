@@ -1,26 +1,8 @@
-import { useEffect, useState } from "react";
-
 const steps = [
-  {
-    nr: "1",
-    title: "Skicka ansökan",
-    text: "Fyll i formuläret med dina uppgifter och berätta kort om dig själv, ditt hem och vilket djur du är intresserad av. Det tar några minuter.",
-  },
-  {
-    nr: "2",
-    title: "Vi granskar",
-    text: "Vårt team läser igenom din ansökan och matchar dig med rätt djur. Vi hör av oss inom 48 timmar med besked om nästa steg.",
-  },
-  {
-    nr: "3",
-    title: "Träffa djuret",
-    text: "Vi bokar ett möte på plats där du får träffa djuret och ställa frågor du har. Ta gärna med familjen.",
-  },
-  {
-    nr: "4",
-    title: "Godkänd adoption",
-    text: "Efter ett beslut om din ansökan är godkänd skriver vi avtal, går genom vaccination och chip — sen är det bara att ta din nya vän hem!",
-  },
+  { nr: "1", title: "Skicka ansökan", text: "Fyll i formuläret med dina uppgifter och berätta kort om dig själv, ditt hem och vilket djur du är intresserad av. Det tar några minuter." },
+  { nr: "2", title: "Vi granskar", text: "Vårt team läser igenom din ansökan och matchar dig med rätt djur. Vi hör av oss inom 48 timmar med besked om nästa steg." },
+  { nr: "3", title: "Träffa djuret", text: "Vi bokar ett möte på plats där du får träffa djuret och ställa frågor du har. Ta gärna med familjen." },
+  { nr: "4", title: "Godkänd adoption", text: "Efter ett beslut om din ansökan är godkänd skriver vi avtal, går genom vaccination och chip — sen är det bara att ta din nya vän hem!" },
 ];
 
 const animals = [
@@ -45,14 +27,6 @@ const animals = [
 ];
 
 export default function AdoptionProcess() {
-  const [intro, setIntro] = useState(null);
-
-  useEffect(() => {
-    fetch("/api/animals/content/Adoption")
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => setIntro(data));
-  }, []);
-
   return (
     <div>
       <section aria-labelledby="adoption-heading">
@@ -60,14 +34,12 @@ export default function AdoptionProcess() {
           id="adoption-heading"
           className="m-5 p-4 text-center text-3xl font-bold sm:text-2xl"
         >
-          {intro?.heading ?? "Adoptionsprocessen"}
+          Adoptionsprocessen
         </h1>
-        <p className="px-4 pb-4 text-center text-lg whitespace-pre-line text-gray-700">
-          {intro?.body ??
-            "Från ansökan till godkänd adoption — fyra enkla steg."}
+        <p className="px-4 pb-4 text-center text-lg text-gray-700">
+          Från ansökan till godkänd adoption — fyra enkla steg.
         </p>
 
-        {/* Steg */}
         <ol className="mx-auto max-w-4xl space-y-6 px-4 py-8">
           {steps.map((s) => (
             <li
@@ -91,7 +63,6 @@ export default function AdoptionProcess() {
         </ol>
       </section>
 
-      {/* Priser */}
       <section aria-labelledby="prices-heading">
         <h2
           id="prices-heading"
@@ -114,25 +85,20 @@ export default function AdoptionProcess() {
                 alt={a.alt}
                 className="aspect-square w-full object-cover p-3"
               />
-              <p className="py-2 text-center text-2xl tracking-wide">
-                {a.type}
-              </p>
+              <p className="py-2 text-center text-2xl tracking-wide">{a.type}</p>
               <p className="pb-2 text-center text-2xl font-bold text-amber-600">
                 {a.price}
-                <span className="ml-1 text-base font-medium text-gray-600">
-                  kr
-                </span>
+                <span className="text-base font-medium text-gray-600 ml-1">kr</span>
               </p>
             </article>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
       <div className="mx-auto max-w-4xl px-4 py-12 text-center">
         <a
           href="#contact"
-          className="inline-block rounded-sm border-2 border-amber-500 bg-amber-500 px-10 py-3 text-lg font-bold text-white shadow-md transition hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 focus:ring-offset-2 focus:outline-none"
+          className="inline-block rounded-sm border-2 border-amber-500 bg-amber-500 px-10 py-3 text-lg font-bold text-white shadow-md transition hover:bg-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-300 focus:ring-offset-2"
         >
           Skicka ansökan
         </a>

@@ -18,7 +18,15 @@ export const getAllApplications = (req, res) => {
 };
 
 export const createApplication = (req, res) => {
-  const { animal_id, applicant_name, applicant_email, housing_type } = req.body;
+  const {
+    animal_id,
+    applicant_name,
+    applicant_email,
+    applicant_phone,
+    housing_type,
+    about_you,
+    other_pets,
+  } = req.body;
 
   if (!animal_id || !applicant_name || !applicant_email) {
     return res.status(400).json({
@@ -36,13 +44,24 @@ export const createApplication = (req, res) => {
     }
 
     const query = `
-      INSERT INTO applications (animal_id, applicant_name, applicant_email, housing_type, status)
-      VALUES (?, ?, ?, ?, 'Mottagen')
+      INSERT INTO applications (
+        animal_id, applicant_name, applicant_email, applicant_phone,
+        housing_type, about_you, other_pets, status
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, 'Mottagen')
     `;
 
     const info = db
       .prepare(query)
-      .run(animal_id, applicant_name, applicant_email, housing_type || null);
+      .run(
+        animal_id,
+        applicant_name,
+        applicant_email,
+        applicant_phone || null,
+        housing_type || null,
+        about_you || null,
+        other_pets || null
+      );
 
     res.status(201).json({
       message: "Ansökan mottagen!",
