@@ -6,6 +6,9 @@ import ApplicationForm from "./pages/ApplicationForm.jsx";
 import AdoptionProcess from "./pages/AdoptionProcess.jsx";
 import AdminForm from "./pages/AdminForm.jsx";
 import AdminApplications from "./pages/AdminApplications.jsx";
+import Login from "./pages/Login.jsx";
+import RegisterUser from "./pages/RegisterUser.jsx";
+import UserPage from "./pages/UserPage.jsx";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
         <Route path="/adoption" element={<AdoptionProcess />} />
         <Route path="/admin/animals" element={<AdminForm />} />
         <Route path="/admin/applications" element={<AdminApplications />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterUser />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
     </BrowserRouter>
   );

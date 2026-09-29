@@ -1,11 +1,26 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar.jsx";
 
 const steps = [
-  { nr: "1", title: "Skicka ansökan", text: "Fyll i formuläret med dina uppgifter och berätta kort om dig själv, ditt hem och vilket djur du är intresserad av. Det tar några minuter." },
-  { nr: "2", title: "Vi granskar", text: "Vårt team läser igenom din ansökan och matchar dig med rätt djur. Vi hör av oss inom 48 timmar med besked om nästa steg." },
-  { nr: "3", title: "Träffa djuret", text: "Vi bokar ett möte på plats där du får träffa djuret och ställa frågor du har. Ta gärna med familjen." },
-  { nr: "4", title: "Godkänd adoption", text: "Efter ett beslut om din ansökan är godkänd skriver vi avtal, går genom vaccination och chip — sen är det bara att ta din nya vän hem!" },
+  {
+    nr: "1",
+    title: "Skicka ansökan",
+    text: "Fyll i formuläret med dina uppgifter och berätta kort om dig själv, ditt hem och vilket djur du är intresserad av. Det tar några minuter.",
+  },
+  {
+    nr: "2",
+    title: "Vi granskar",
+    text: "Vårt team läser igenom din ansökan och matchar dig med rätt djur. Vi hör av oss inom 48 timmar med besked om nästa steg.",
+  },
+  {
+    nr: "3",
+    title: "Träffa djuret",
+    text: "Vi bokar ett möte på plats där du får träffa djuret och ställa frågor du har. Ta gärna med familjen.",
+  },
+  {
+    nr: "4",
+    title: "Godkänd adoption",
+    text: "Efter ett beslut om din ansökan är godkänd skriver vi avtal, går genom vaccination och chip — sen är det bara att ta din nya vän hem!",
+  },
 ];
 
 const animals = [
@@ -39,9 +54,7 @@ export default function AdoptionProcess() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-amber-50">
-      <Navbar />
-
+    <div>
       <section aria-labelledby="adoption-heading">
         <h1
           id="adoption-heading"
@@ -49,8 +62,9 @@ export default function AdoptionProcess() {
         >
           {intro?.heading ?? "Adoptionsprocessen"}
         </h1>
-        <p className="whitespace-pre-line px-4 pb-4 text-center text-lg text-gray-700">
-          {intro?.body ?? "Från ansökan till godkänd adoption — fyra enkla steg."}
+        <p className="px-4 pb-4 text-center text-lg whitespace-pre-line text-gray-700">
+          {intro?.body ??
+            "Från ansökan till godkänd adoption — fyra enkla steg."}
         </p>
 
         {/* Steg */}
@@ -100,10 +114,14 @@ export default function AdoptionProcess() {
                 alt={a.alt}
                 className="aspect-square w-full object-cover p-3"
               />
-              <p className="py-2 text-center text-2xl tracking-wide">{a.type}</p>
+              <p className="py-2 text-center text-2xl tracking-wide">
+                {a.type}
+              </p>
               <p className="pb-2 text-center text-2xl font-bold text-amber-600">
                 {a.price}
-                <span className="text-base font-medium text-gray-600 ml-1">kr</span>
+                <span className="ml-1 text-base font-medium text-gray-600">
+                  kr
+                </span>
               </p>
             </article>
           ))}
@@ -114,7 +132,7 @@ export default function AdoptionProcess() {
       <div className="mx-auto max-w-4xl px-4 py-12 text-center">
         <a
           href="#contact"
-          className="inline-block rounded-sm border-2 border-amber-500 bg-amber-500 px-10 py-3 text-lg font-bold text-white shadow-md transition hover:bg-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-300 focus:ring-offset-2"
+          className="inline-block rounded-sm border-2 border-amber-500 bg-amber-500 px-10 py-3 text-lg font-bold text-white shadow-md transition hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 focus:ring-offset-2 focus:outline-none"
         >
           Skicka ansökan
         </a>

@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+  --color-fuchsia-white: color-mix(in oklch, white 80%, var(--color-fuchsia-50));
+}
