@@ -1,5 +1,6 @@
 import { Outlet } from "react-router";
 import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 export default function MainLayout({ user }) {
   return (
@@ -8,6 +9,7 @@ export default function MainLayout({ user }) {
       <main className="flex flex-1 flex-col">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 }
