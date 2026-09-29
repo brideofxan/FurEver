@@ -1,28 +1,28 @@
-import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
-import MainLayout from "./layouts/MainLayout.jsx";
 import Home from "./pages/Home.jsx";
 import Animals from "./pages/Animals.jsx";
 import AnimalDetail from "./pages/AnimalDetail.jsx";
 import ApplicationForm from "./pages/ApplicationForm.jsx";
 import AdoptionProcess from "./pages/AdoptionProcess.jsx";
-import AdminForm from "./pages/AdminForm.jsx";
 import AdminApplications from "./pages/AdminApplications.jsx";
+import AdminForm from "./pages/AdminForm.jsx";
+import AdminTextForm from "./pages/AdminTextForm.jsx";
 import Login from "./pages/Login.jsx";
 import RegisterUser from "./pages/RegisterUser.jsx";
 import UserPage from "./pages/UserPage.jsx";
+import { useEffect, useState } from "react";
+import MainLayout from "./layouts/MainLayout.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
 
-  // Kolla om användaren är inloggad (via session) vid sidladdning
   useEffect(() => {
-    fetch("/api/auth/user")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.user) setUser(data.user);
-      })
-      .catch(() => setUser(null));
+    const getUser = async () => {
+      const res = await fetch("/api/auth/user");
+      const data = await res.json();
+      setUser(data.user);
+    };
+    getUser();
   }, []);
 
   return (
@@ -34,15 +34,14 @@ function App() {
           <Route path="/animals/:id" element={<AnimalDetail />} />
           <Route path="/animals/:id/apply" element={<ApplicationForm />} />
           <Route path="/adoption" element={<AdoptionProcess />} />
-          <Route path="/admin/animals" element={<AdminForm />} />
-          <Route path="/admin/applications" element={<AdminApplications />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<RegisterUser />} />
-          <Route
-            path="/user"
-            element={<UserPage user={user} setUser={setUser} />}
-          />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/user" element={<UserPage setUser={setUser} />} />
         </Route>
+
+        <Route path="/admin/applications" element={<AdminApplications />} />
+        <Route path="/admin/animals" element={<AdminForm />} />
+        <Route path="/admin/texts" element={<AdminTextForm />} />
       </Routes>
     </BrowserRouter>
   );
