@@ -90,7 +90,7 @@ export async function login(req, res) {
       user: { id: user.id, username: user.username },
     });
   } catch (error) {
-    console.error("Något gick fel vid registrering av användaren: ", error);
+    console.error("Något gick fel vid inloggningen: ", error);
 
     return res.status(500).json({
       error: "Något gick fel, vänligen försök igen senare.",
