@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import AnimalCard from "../components/AnimalCard.jsx";
-import Footer from "../components/Footer.jsx";
 
 export default function Home() {
   const [animals, setAnimals] = useState([]);
@@ -31,7 +30,6 @@ export default function Home() {
           <AnimalCard key={animal.id} animal={animal} />
         ))}
       </section>
-      <Footer />
     </div>
   );
 }
