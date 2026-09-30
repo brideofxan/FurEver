@@ -9,20 +9,20 @@ CREATE TABLE IF NOT EXISTS animals (
     good_with_children TEXT,
     good_with_animals TEXT,
     special_needs TEXT,
-    status TEXT NOT NULL DEFAULT 'Available',
+    status TEXT NOT NULL DEFAULT 'Tillgänglig',
     image_path TEXT NOT NULL,
     description TEXT
 );
 
 INSERT INTO animals(
   name, animal_type, image_path
-) VALUES ( 'Pato', 'katt', 'uploads/animals/pato.jpg' ),
-( 'Pascal', 'katt', 'uploads/animals/pascal.jpg' ),
-( 'Archibald', 'katt', 'uploads/animals/archibald.jpg' ),
-( 'Patoski', 'katt', 'uploads/animals/pato-selfie.jpg' ),
-( 'Explorer Lad', 'katt', 'uploads/animals/explorer-boi.jpg' ),
-( 'Fancy Lad', 'katt', 'uploads/animals/anniversary-boi.jpg' ),
-( 'Solpågen', 'katt', 'uploads/animals/sun-boi.jpg' );
+) VALUES ( 'Pato', 'katt', '/uploads/animals/pato.jpg' ),
+( 'Pascal', 'katt', '/uploads/animals/pascal.jpg' ),
+( 'Archibald', 'katt', '/uploads/animals/archibald.jpg' ),
+( 'Patoski', 'katt', '/uploads/animals/pato-selfie.jpg' ),
+( 'Explorer Lad', 'katt', '/uploads/animals/explorer-boi.jpg' ),
+( 'Fancy Lad', 'katt', '/uploads/animals/anniversary-boi.jpg' ),
+( 'Solpågen', 'katt', '/uploads/animals/sun-boi.jpg' );
 
 CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -35,6 +35,10 @@ CREATE TABLE IF NOT EXISTS applications (
   animal_id INTEGER NOT NULL,
   applicant_name TEXT NOT NULL,
   applicant_email TEXT NOT NULL,
+  applicant_phone TEXT,
+  housing_type TEXT,
+  about_you TEXT,
+  other_pets TEXT,
   status TEXT NOT NULL DEFAULT 'Mottagen',
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_by TEXT,

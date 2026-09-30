@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   getAllAnimals,
+  getAnimalById,
   upload,
   createAnimal,
   getAllContent,
@@ -12,6 +13,7 @@ const router = Router();
 
 // Animals
 router.get("/", getAllAnimals);
+router.get("/:id", getAnimalById);
 router.post("/", upload.single("image"), createAnimal);
 
 // Page texts (content)
