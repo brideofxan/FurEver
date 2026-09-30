@@ -22,7 +22,7 @@ export default function AnimalCard({ animal }) {
           className="absolute top-5 right-5 z-10 bg-white/10 p-2 text-7xl shadow-sm backdrop-blur-xs transition hover:scale-110 hover:bg-white [text-shadow:_0_0_2px_rgba(0,0,0,1)]"
           title={favorite ? "Ta bort från favoriter" : "Lägg till som favorit"}
         >
-          {favorite ? "⭐" : "☆"}
+          {favorite ? "❤️" : "🤍"}
         </button>
 
         <img
