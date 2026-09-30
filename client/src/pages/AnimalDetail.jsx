@@ -129,7 +129,7 @@ export default function AnimalDetail() {
                     <h2 className="mb-2 font-semibold text-gray-800">
                       Om {animal.name}
                     </h2>
-                    <p className="leading-relaxed text-gray-700">
+                    <p className="leading-relaxed text-pretty break-all text-gray-700">
                       {animal.description}
                     </p>
                   </div>

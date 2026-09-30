@@ -133,11 +133,11 @@ function AdminAddAnimals() {
           <input
             type="checkbox"
             name="good_with_children"
-            checked={formData.good_with_children === "true"}
+            checked={formData.good_with_children === "Ja"}
             onChange={(e) =>
               setFormData({
                 ...formData,
-                good_with_children: e.target.checked ? "true" : "false",
+                good_with_children: e.target.checked ? "Ja" : "Nej",
               })
             }
             className="h-4 w-4 rounded border-gray-300"
@@ -149,11 +149,11 @@ function AdminAddAnimals() {
           <input
             type="checkbox"
             name="good_with_animals"
-            checked={formData.good_with_animals === "true"}
+            checked={formData.good_with_animals === "Ja"}
             onChange={(e) =>
               setFormData({
                 ...formData,
-                good_with_animals: e.target.checked ? "true" : "false",
+                good_with_animals: e.target.checked ? "Ja" : "Nej",
               })
             }
             className="h-4 w-4 rounded border-gray-300"
