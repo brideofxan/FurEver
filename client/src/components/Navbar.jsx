@@ -5,7 +5,7 @@ export default function Navbar({ user }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 flex h-16 items-center border-b border-gray-200 bg-white shadow-sm sm:h-24">
+    <nav className="sticky top-0 z-50 flex h-20 items-center border-b border-gray-200 bg-white shadow-sm sm:h-32">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <div className="flex flex-shrink-0 items-center">
@@ -13,7 +13,7 @@ export default function Navbar({ user }) {
             <img
               src="/logo_furever.png"
               alt="FurEver Logo"
-              className="h-12 w-auto transition-all duration-200 sm:h-20"
+              className="h-16 w-auto transition-all duration-200 sm:h-20"
             />
           </Link>
         </div>
@@ -47,7 +47,7 @@ export default function Navbar({ user }) {
         </div>
 
         {/* Meny */}
-        <div className="hidden items-center space-x-2 text-sm font-medium text-gray-700 sm:flex">
+        <div className="hidden items-center space-x-2 font-medium text-gray-700 sm:flex sm:text-lg">
           <Link
             to="/animals"
             className="cursor-pointer transition-colors hover:text-amber-600"
@@ -90,7 +90,7 @@ export default function Navbar({ user }) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-5"
+              className="size-6"
             >
               <path
                 strokeLinecap="round"
@@ -111,7 +111,7 @@ export default function Navbar({ user }) {
           >
             {isOpen ? (
               <svg
-                className="size-6"
+                className="size-7"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -125,7 +125,7 @@ export default function Navbar({ user }) {
               </svg>
             ) : (
               <svg
-                className="size-6"
+                className="size-7"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -144,38 +144,38 @@ export default function Navbar({ user }) {
 
       {/* Utvikbar mobilmeny */}
       {isOpen && (
-        <div className="absolute top-16 left-0 z-40 flex w-full flex-col items-center space-y-3 border-b border-gray-200 bg-white px-6 py-4 shadow-lg sm:hidden">
+        <div className="absolute top-20 left-0 z-40 flex w-full flex-col items-center space-y-3 border-b border-gray-200 bg-white px-6 py-4 shadow-lg sm:hidden">
           <Link
             to="/animals"
-            className="block w-full border-b border-gray-100 py-3 text-center text-base font-medium text-gray-700 hover:text-amber-600"
+            className="block w-full border-b border-gray-100 py-3 text-center text-base text-lg font-medium text-gray-700 hover:text-amber-600"
             onClick={() => setIsOpen(false)}
           >
             Djur
           </Link>
           <Link
             to="/adoption"
-            className="block w-full border-b border-gray-100 py-3 text-center text-base font-medium text-gray-700 hover:text-amber-600"
+            className="block w-full border-b border-gray-100 py-3 text-center text-base text-lg font-medium text-gray-700 hover:text-amber-600"
             onClick={() => setIsOpen(false)}
           >
             Adoption
           </Link>
           <a
             href="#contact"
-            className="block w-full border-b border-gray-100 py-3 text-center text-base font-medium text-gray-700 hover:text-amber-600"
+            className="block w-full border-b border-gray-100 py-3 text-center text-base text-lg font-medium text-gray-700 hover:text-amber-600"
             onClick={() => setIsOpen(false)}
           >
             Kontakt
           </a>
           <a
             href="#prices"
-            className="block w-full border-b border-gray-100 py-3 text-center text-base font-medium text-gray-700 hover:text-amber-600"
+            className="block w-full border-b border-gray-100 py-3 text-center text-base text-lg font-medium text-gray-700 hover:text-amber-600"
             onClick={() => setIsOpen(false)}
           >
             Priser
           </a>
           <Link
             to={user ? "/user" : "/login"}
-            className="block w-full border-b border-gray-100 py-3 text-center text-base font-medium text-gray-700 hover:text-amber-600"
+            className="block w-full border-b border-gray-100 py-3 text-center text-base text-lg font-medium text-gray-700 hover:text-amber-600"
             onClick={() => setIsOpen(false)}
           >
             Mina sidor

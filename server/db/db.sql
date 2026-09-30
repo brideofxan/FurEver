@@ -45,14 +45,11 @@ CREATE TABLE IF NOT EXISTS applications (
   FOREIGN KEY (animal_id) REFERENCES animals(id)
 );
 
-INSERT INTO applications (animal_id, applicant_name, applicant_email, status)
-VALUES 
-(1, 'Anna Andersson', 'anna@example.com', 'Mottagen'),
-(2, 'Erik Karlsson', 'erik@example.com', 'Under granskning'),
-(3, 'Maria Johansson', 'maria@example.com', 'Godkänd');
-
 CREATE TABLE IF NOT EXISTS content (
   key TEXT PRIMARY KEY,
   heading TEXT,
   body TEXT
 );
+
+INSERT INTO content(key, heading, body)
+VALUES ('Home', 'Välkommen till FurEver', 'Hitta din nya familjemedlem!');

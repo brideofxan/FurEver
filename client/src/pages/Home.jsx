@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import AnimalCard from "../components/AnimalCard.jsx";
 import { useFavorites } from "../hooks/useFavorites.js";
+import { Link } from "react-router";
 
 export default function Home() {
   const [animals, setAnimals] = useState([]);
@@ -13,7 +14,9 @@ export default function Home() {
       .then((data) => setAnimals(data));
   }, []);
 
-  const favoriteAnimals = animals.filter((animal) => favorites.includes(animal.id))
+  const favoriteAnimals = animals.filter((animal) =>
+    favorites.includes(animal.id),
+  );
   useEffect(() => {
     fetch("/api/animals/content/Home")
       .then((res) => (res.ok ? res.json() : null))
@@ -23,26 +26,40 @@ export default function Home() {
   return (
     <div>
       {intro && (
-        <section className="mx-auto max-w-4xl px-4 py-12 text-center">
+        <section className="mx-auto mb-5 max-w-4xl px-4 py-12 text-center">
           <h1 className="text-4xl font-bold text-gray-900">{intro.heading}</h1>
-          <p className="mt-4 text-lg text-gray-700">{intro.body}</p>
+          <p className="mt-4 text-2xl text-gray-700">{intro.body}</p>
         </section>
       )}
+
+      <h3 className="p-3 text-xl font-medium">
+        Här är några av våra djur som söker nya hem.
+        <br />
+        <Link
+          className="text-blue-700 italic underline underline-offset-2"
+          to="/animals"
+        >
+          {" "}
+          Klicka här
+        </Link>{" "}
+        för att se alla djur.
+      </h3>
+
       <section className="mx-auto grid max-w-[2000px] gap-10 p-4 sm:grid-cols-2 lg:grid-cols-3">
         {animals.slice(0, 6).map((animal) => (
           <AnimalCard key={animal.id} animal={animal} />
         ))}
       </section>
-       
-       {/* Sektion med Favoriterna, längre ner på sidan */}
-      <section className="mx-auto max-w-[2000px] border-t border-amber-200/60 p-4 mt-12 pt-8">
+
+      {/* Sektion med Favoriterna, längre ner på sidan */}
+      <section className="mx-auto mt-12 max-w-[2000px] border-t border-amber-200/60 p-4 pt-8">
         <div className="mb-6">
-          <h2 className="text-3xl font-semibold tracking-wide text-gray-800">
+          <h3 className="text-3xl font-semibold tracking-wide text-gray-800">
             Dina favoriter
-          </h2>
-          <p className="text-sm text-gray-500 mt-1">
-            {favorites.length === 0 
-              ? "Du har inte sparat några favoriter ännu. Klicka på hjärtat på ett djur!" 
+          </h3>
+          <p className="mt-1 text-sm text-gray-500">
+            {favorites.length === 0
+              ? "Du har inte sparat några favoriter ännu. Klicka på hjärtat på ett djur!"
               : `Sparade favoriter: ${favorites.length} av max 3 (utan konto)`}
           </p>
         </div>
@@ -54,7 +71,7 @@ export default function Home() {
             ))}
           </div>
         )}
-      </section>    
+      </section>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import AnimalDetail from "./pages/AnimalDetail.jsx";
 import ApplicationForm from "./pages/ApplicationForm.jsx";
 import AdoptionProcess from "./pages/AdoptionProcess.jsx";
 import AdminApplications from "./pages/AdminApplications.jsx";
-import AdminForm from "./pages/AdminForm.jsx";
+import AdminAddAnimals from "./pages/AdminAddAnimals.jsx";
 import AdminTextForm from "./pages/AdminTextForm.jsx";
 import Login from "./pages/Login.jsx";
 import RegisterUser from "./pages/RegisterUser.jsx";
@@ -40,7 +40,7 @@ function App() {
         </Route>
 
         <Route path="/admin/applications" element={<AdminApplications />} />
-        <Route path="/admin/animals" element={<AdminForm />} />
+        <Route path="/admin/animals" element={<AdminAddAnimals />} />
         <Route path="/admin/texts" element={<AdminTextForm />} />
       </Routes>
     </BrowserRouter>

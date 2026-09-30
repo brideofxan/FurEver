@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AdminLayout from "../components/AdminLayout.jsx";
 
-function AdminForm() {
+function AdminAddAnimals() {
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -222,4 +222,4 @@ function AdminForm() {
   );
 }
 
-export default AdminForm;
+export default AdminAddAnimals;
