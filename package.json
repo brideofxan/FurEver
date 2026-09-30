@@ -51,6 +51,6 @@
     "vite": "^8.2.2"
   },
   "allowScripts": {
-    "better-sqlite3@12.9.3": true
+    "better-sqlite3@12.9.0": true
   }
 }
