@@ -28,9 +28,10 @@ export const createApplication = (req, res) => {
     other_pets,
   } = req.body;
 
-  if (!animal_id || !applicant_name || !applicant_email) {
+  // Bara obligatoriska fält: animal_id och applicant_name
+  if (!animal_id || !applicant_name) {
     return res.status(400).json({
-      error: "animal_id, applicant_name och applicant_email krävs",
+      error: "animal_id och applicant_name krävs",
     });
   }
 
@@ -56,7 +57,7 @@ export const createApplication = (req, res) => {
       .run(
         animal_id,
         applicant_name,
-        applicant_email,
+        applicant_email || null,
         applicant_phone || null,
         housing_type || null,
         about_you || null,

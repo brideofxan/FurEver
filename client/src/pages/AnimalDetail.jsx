@@ -1,36 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router";
 
-const translations = {
-  animal_type: {
-    cat: "Katt",
-    dog: "Hund",
-    rabbit: "Kanin",
-    bird: "Fågel",
-    hamster: "Hamster",
-  },
-  status: {
-    available: "Tillgänglig",
-    adopted: "Adopterad",
-    reserved: "Reserverad",
-    pending: "Under behandling",
-  },
-  gender: {
-    male: "Hane",
-    female: "Hona",
-  },
-  yesNo: {
-    yes: "Ja",
-    no: "Nej",
-  },
-};
-
-function translate(category, value) {
-  if (!value) return value;
-  const key = String(value).toLowerCase();
-  return translations[category]?.[key] || value;
-}
-
 export default function AnimalDetail() {
   const { id } = useParams();
   const [animal, setAnimal] = useState(null);
@@ -105,13 +75,13 @@ export default function AnimalDetail() {
                   {animal.gender && (
                     <div>
                       <dt className="font-semibold">Kön</dt>
-                      <dd>{translate("gender", animal.gender)}</dd>
+                      <dd>{animal.gender}</dd>
                     </div>
                   )}
                   {animal.animal_type && (
                     <div>
                       <dt className="font-semibold">Typ</dt>
-                      <dd>{translate("animal_type", animal.animal_type)}</dd>
+                      <dd>{animal.animal_type}</dd>
                     </div>
                   )}
                   {animal.activity_level && (
@@ -129,13 +99,13 @@ export default function AnimalDetail() {
                   {animal.good_with_children && (
                     <div>
                       <dt className="font-semibold">Bra med barn</dt>
-                      <dd>{translate("yesNo", animal.good_with_children)}</dd>
+                      <dd>{animal.good_with_children}</dd>
                     </div>
                   )}
                   {animal.good_with_animals && (
                     <div>
                       <dt className="font-semibold">Bra med andra djur</dt>
-                      <dd>{translate("yesNo", animal.good_with_animals)}</dd>
+                      <dd>{animal.good_with_animals}</dd>
                     </div>
                   )}
                   {animal.special_needs && (
@@ -148,7 +118,7 @@ export default function AnimalDetail() {
                     <div>
                       <dt className="font-semibold">Status</dt>
                       <dd className="text-amber-600 font-bold">
-                        {translate("status", animal.status)}
+                        {animal.status}
                       </dd>
                     </div>
                   )}
