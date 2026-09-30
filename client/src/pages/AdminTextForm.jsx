@@ -3,7 +3,7 @@ import AdminLayout from "../components/AdminLayout";
 
 // Add more sections here ifyou need them
 const SECTIONS = [
-  { key: "Home", label: "Hemsidan" },
+  { key: "Home", label: "Startsidan" },
   { key: "Adoption", label: "Adoptionsprocess" },
   { key: "Detaljsida", label: "Djurens detaljsida" },
 ];

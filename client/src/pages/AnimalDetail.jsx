@@ -117,7 +117,7 @@ export default function AnimalDetail() {
                   {animal.status && (
                     <div>
                       <dt className="font-semibold">Status</dt>
-                      <dd className="text-amber-600 font-bold">
+                      <dd className="font-bold text-amber-600">
                         {animal.status}
                       </dd>
                     </div>
@@ -137,7 +137,7 @@ export default function AnimalDetail() {
 
                 <Link
                   to={`/animals/${animal.id}/apply`}
-                  className="mt-8 inline-block w-full rounded-sm border-2 border-amber-500 bg-amber-500 px-8 py-3 text-center text-lg font-bold text-white shadow-md transition hover:bg-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-300 focus:ring-offset-2 sm:w-auto"
+                  className="mt-8 inline-block w-full rounded-sm border-2 border-amber-500 bg-amber-500 px-8 py-3 text-center text-lg font-bold text-white shadow-md transition hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 focus:ring-offset-2 focus:outline-none sm:w-auto"
                 >
                   Ansök om adoption
                 </Link>
