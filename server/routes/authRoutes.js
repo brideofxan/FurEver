@@ -4,7 +4,6 @@ import {
   login,
   logout,
   registerUser,
-  requireLogin,
 } from "../controllers/authControllers.js";
 
 const router = Router();
@@ -15,6 +14,6 @@ router.post("/login", login);
 
 router.post("/logout", logout);
 
-router.get("/user", requireLogin, getCurrentUser);
+router.get("/user", getCurrentUser);
 
 export default router;

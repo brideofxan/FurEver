@@ -120,10 +120,3 @@ export function getCurrentUser(req, res) {
     user: { id: req.session.userId, username: req.session.username },
   });
 }
-
-export function requireLogin(req, res, next) {
-  if (!req.session.userId) {
-    return res.status(401).json({ error: "Du måste vara inloggad" });
-  }
-  next();
-}

@@ -10,7 +10,8 @@ export default function UserPage({ setUser }) {
   useEffect(() => {
     const checkLogin = async () => {
       const res = await fetch("/api/auth/user");
-      if (!res.ok) {
+      const data = await res.json();
+      if (!data.user) {
         navigate("/login");
       } else {
         setLoggedIn(true);

@@ -61,7 +61,7 @@ export const createApplication = (req, res) => {
         applicant_phone || null,
         housing_type || null,
         about_you || null,
-        other_pets || null
+        other_pets || null,
       );
 
     res.status(201).json({
@@ -93,7 +93,9 @@ export const updateApplicationStatus = (req, res) => {
     const info = db.prepare(query).run(status, id);
 
     if (info.changes === 0) {
-      return res.status(404).json({ error: "Hittade ingen ansökan med det ID:t" });
+      return res
+        .status(404)
+        .json({ error: "Hittade ingen ansökan med det ID:t" });
     }
 
     res.json({ message: "Status uppdaterad!", id, status });
