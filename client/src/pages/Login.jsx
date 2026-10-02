@@ -8,7 +8,7 @@ export default function LoginUser({ setUser }) {
   });
 
   const [error, setError] = useState("");
-  const [successfulLogin, setSuccessfulLogin] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,6 +23,8 @@ export default function LoginUser({ setUser }) {
       return;
     }
 
+    setLoading(true);
+
     try {
       const response = await fetch("/api/auth/login", {
         method: "POST",
@@ -34,10 +36,10 @@ export default function LoginUser({ setUser }) {
 
       if (!response.ok) {
         setError(data.error);
+        setLoading(false);
         return;
       }
 
-      setSuccessfulLogin(data.message);
       setUser(data.user);
       setForm({ username: "", password: "" });
 
@@ -47,6 +49,7 @@ export default function LoginUser({ setUser }) {
     } catch (err) {
       console.error(err);
       setError("Något fick fel, vänligen försök igen senare.");
+      setLoading(false);
     }
   };
 
@@ -88,16 +91,13 @@ export default function LoginUser({ setUser }) {
 
         {error && <p className="font-bold text-red-700">{error}</p>}
 
-        {successfulLogin && (
-          <p className="font-bold text-green-700">{successfulLogin}</p>
-        )}
-
         <div className="flex flex-wrap items-center justify-between gap-3 sm:pt-8">
           <button
             type="submit"
-            className="cursor-pointer rounded-md border border-taupe-400 bg-sky-200/70 p-3 font-bold shadow-xs transition duration-100 ease-in-out outline-none hover:bg-sky-300/50 focus-visible:bg-sky-300/50 focus-visible:ring-2 focus-visible:ring-taupe-500/50 active:bg-sky-300/70 sm:p-2"
+            disabled={loading}
+            className="cursor-pointer rounded-md border border-taupe-400 bg-sky-200/70 p-3 font-bold shadow-xs transition duration-100 ease-in-out outline-none hover:bg-sky-300/50 focus-visible:bg-sky-300/50 focus-visible:ring-2 focus-visible:ring-taupe-500/50 active:bg-sky-300/70 disabled:cursor-not-allowed disabled:opacity-50 sm:p-2"
           >
-            Logga in
+            {loading ? "Loggar in..." : "Logga in"}
           </button>
           <h4 className="w-full text-lg sm:w-auto sm:text-base">
             Saknar du konto?{" "}

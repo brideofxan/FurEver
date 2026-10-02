@@ -3,8 +3,9 @@ import { useNavigate } from "react-router";
 
 export default function UserPage({ setUser }) {
   const [error, setError] = useState("");
-  const [successfulLogout, setSuccessfulLogout] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,16 +24,18 @@ export default function UserPage({ setUser }) {
   const handleLogout = async () => {
     setError("");
 
+    setLoading(true);
+
     try {
       const response = await fetch("/api/auth/logout", { method: "POST" });
       const data = await response.json();
 
       if (!response.ok) {
         setError(data.error);
+        setLoading(false);
         return;
       }
 
-      setSuccessfulLogout(data.message);
       setUser(null);
 
       setTimeout(() => {
@@ -41,6 +44,7 @@ export default function UserPage({ setUser }) {
     } catch (err) {
       console.error(err);
       setError("Något gick fel, vänligen försök igen senare.");
+      setLoading(false);
     }
   };
 
@@ -57,18 +61,14 @@ export default function UserPage({ setUser }) {
       />
 
       {error && <p className="mx-10 text-lg font-bold text-red-700">{error}</p>}
-      {successfulLogout && (
-        <p className="mx-10 text-lg font-bold text-green-700">
-          {successfulLogout}
-        </p>
-      )}
 
       <button
         type="button"
+        disabled={loading}
         onClick={handleLogout}
-        className="m-10 cursor-pointer rounded-md border border-taupe-400 bg-sky-200/70 px-10 py-3 text-lg font-bold shadow-xs transition duration-100 ease-in-out outline-none hover:bg-sky-300/50 focus-visible:bg-sky-300/50 focus-visible:ring-2 focus-visible:ring-taupe-500/50 active:bg-sky-300/70"
+        className="m-10 cursor-pointer rounded-md border border-taupe-400 bg-sky-200/70 px-10 py-3 text-lg font-bold shadow-xs transition duration-100 ease-in-out outline-none hover:bg-sky-300/50 focus-visible:bg-sky-300/50 focus-visible:ring-2 focus-visible:ring-taupe-500/50 active:bg-sky-300/70 disabled:cursor-not-allowed disabled:opacity-50"
       >
-        Logga ut
+        {loading ? "Loggar ut..." : "Logga ut"}
       </button>
     </div>
   );
