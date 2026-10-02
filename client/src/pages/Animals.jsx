@@ -4,11 +4,16 @@ import AnimalCard from "../components/AnimalCard.jsx";
 export default function Animals() {
   const [animals, setAnimals] = useState([]);
   const [intro, setIntro] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch("/api/animals")
-      .then((res) => res.json())
-      .then((data) => setAnimals(data));
+      .then((res) => {
+        if (!res.ok) throw new Error("Server fel");
+        return res.json();
+      })
+      .then((data) => setAnimals(data))
+      .catch(() => setError("Kunde inte hämta djuren, vänligen försök igen"));
   }, []);
 
   useEffect(() => {
@@ -27,6 +32,11 @@ export default function Animals() {
           )}
         </section>
       )}
+
+      {error && (
+        <p className="p-10 text-center text-lg text-red-700">{error}</p>
+      )}
+
       <section className="mx-auto grid max-w-[2000px] gap-10 p-4 sm:grid-cols-2 lg:grid-cols-3">
         {animals.map((animal) => (
           <AnimalCard key={animal.id} animal={animal} />
