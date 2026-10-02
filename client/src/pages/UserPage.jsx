@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 export default function UserPage({ setUser }) {
   const [error, setError] = useState("");
   const [successfulLogout, setSuccessfulLogout] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      const res = await fetch("/api/auth/user");
+      if (!res.ok) {
+        navigate("/login");
+      } else {
+        setLoggedIn(true);
+      }
+    };
+    checkLogin();
+  }, []);
 
   const handleLogout = async () => {
     setError("");
@@ -29,6 +42,10 @@ export default function UserPage({ setUser }) {
       setError("Något gick fel, vänligen försök igen senare.");
     }
   };
+
+  if (!loggedIn) {
+    return null;
+  }
 
   return (
     <div>
