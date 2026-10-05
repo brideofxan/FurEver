@@ -37,6 +37,37 @@ export default function Home() {
         </section>
       )}
 
+      <h2 className="p-4 text-lg">
+        Adoptera från oss Vårt mål är att hitta rätt hem till varje djur och att
+        det får stanna i sitt nya hem resten av sitt liv! Vi är mycket noga med
+        vart våra djur flyttar och kontrollerar alltid de nya hemmen mot
+        länsstyrelsens register över personer med djurförbud samt gör hembesök.
+        <br />
+        Vi bokar alltid in ett första besök där man får komma hit och träffa den
+        individen vi tror kan passa, sedan vill vi att man åker hem och funderar
+        i lugn och ro. Man får aldrig ta med ett djur på första besöket. Man är
+        heller aldrig lovad ett djur, vi förbehåller oss rätten att för djurens
+        bästa kunna neka en placering om det inte känns rätt.
+        <br />
+        <br />
+        För oss är det också viktigt att ha fortsatt kontakt med det nya hemmet
+        när djuren har flyttat. Innan du fattar beslutet att skaffa ett djur
+        tänk på:
+        <br />
+        Kommer du att kunna ta hand om djuret hela dess livslängd? En kanin kan
+        till exempel bli 10 år gammal.
+        <br />
+        Har du koll på vad djuret har för behov?
+        <br />
+        Har du tid?
+        <br />
+        Har du ekonomi?
+        <br />
+        Vem passar djuret om du reser bort?
+        <br />
+        Är du säker på att ingen i familjen har allergier?
+      </h2>
+
       <h3 className="p-3 text-xl font-medium">
         Här är några av våra djur som söker nya hem.
         <br />
