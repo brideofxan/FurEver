@@ -3,14 +3,14 @@ import { useFormStatus } from "react-dom";
 import { Link, useNavigate } from "react-router";
 
 function RegisterButton() {
-  const { loading } = useFormStatus();
+  const { pending } = useFormStatus();
   return (
     <button
       type="submit"
-      disabled={loading}
+      disabled={pending}
       className="cursor-pointer rounded-md border border-taupe-400 bg-sky-200/70 p-3 font-bold shadow-xs transition duration-100 ease-in-out outline-none hover:bg-sky-300/50 focus-visible:bg-sky-300/50 focus-visible:ring-2 focus-visible:ring-taupe-500/50 active:bg-sky-300/70 disabled:cursor-not-allowed disabled:opacity-50 sm:p-2"
     >
-      {loading ? "Registrar..." : "Registrera"}
+      {pending ? "Registrar..." : "Registrera"}
     </button>
   );
 }
