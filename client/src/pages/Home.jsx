@@ -7,11 +7,16 @@ export default function Home() {
   const [animals, setAnimals] = useState([]);
   const { favorites } = useFavorites();
   const [intro, setIntro] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch("/api/animals")
-      .then((res) => res.json())
-      .then((data) => setAnimals(data));
+      .then((res) => {
+        if (!res.ok) throw new Error("Server fel");
+        return res.json();
+      })
+      .then((data) => setAnimals(data))
+      .catch(() => setError("Kunde inte hämta djuren, vänligen försök igen"));
   }, []);
 
   const favoriteAnimals = animals.filter((animal) =>
@@ -44,6 +49,10 @@ export default function Home() {
         </Link>{" "}
         för att se alla djur.
       </h3>
+
+      {error && (
+        <p className="p-10 text-center text-lg text-red-700">{error}</p>
+      )}
 
       <section className="mx-auto grid max-w-[2000px] gap-10 p-4 sm:grid-cols-2 lg:grid-cols-3">
         {animals.slice(0, 6).map((animal) => (
